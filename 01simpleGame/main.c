@@ -2,15 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-typedef struct
+typedef struct cartas
 {
     char PALO;
     int VALOR;
     char TEXTURA[20];
-} cartas;
+} CARTAS;
 
-void init_cartas(cartas baraja[])
+void init_cartas(CARTAS baraja[])
 {
     char palos[] = {'C', 'D', 'T', 'P'};
     int palo, valor, i = 0;
@@ -26,7 +25,13 @@ void init_cartas(cartas baraja[])
         }
     }
 }
+void game(CARTAS baraja[])
+{
+
+}
 int main(int argc, char *argv[])
 {
+    CARTAS baraja[52];
     init_cartas(baraja);
+    game(baraja);
 }
