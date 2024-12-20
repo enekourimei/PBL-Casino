@@ -1,37 +1,29 @@
-#include <SDL.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
-typedef struct cartas
-{
-    char PALO;
-    int VALOR;
-    char TEXTURA[20];
-} CARTAS;
+SDL_Window *win;
+SDL_Renderer *renderer;
 
-void init_cartas(CARTAS baraja[])
-{
-    char palos[] = {'C', 'D', 'T', 'P'};
-    int palo, valor, i = 0;
-
-    for (palo = 0; palo < 4; palo++)
-    {
-        for (valor = 1; valor <= 13; valor++)
-        {
-            baraja[i].PALO = palos[palo];
-            baraja[i].VALOR = valor;
-            sprintf(baraja[i].TEXTURA, "carta_%c_%d.png", palos[palo], valor);
-            i++;
-        }
-    }
-}
-void game(CARTAS baraja[])
-{
-
-}
 int main(int argc, char *argv[])
 {
-    CARTAS baraja[52];
-    init_cartas(baraja);
-    game(baraja);
+
+    quit = 0;
+    win = SDL_CreateWindow("GAME", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT,
+                           SDL_WINDOW_FULLSCREEN_DESKTOP);
+
+    renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+    initialize(win, renderer);
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_Event event;
+    while (!quit)
+    {
+
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    }
+    cleanup(win, renderer);
+
+    return 0;
 }
