@@ -4,8 +4,12 @@
 #include "orokorrak.h"
 
 #include "init.h"
+#include "events.h"
 
-
-extern int quit;
-
+extern bool quit;
+extern bool menu;
+extern bool help;
+extern bool config;
+extern bool game;
+extern int egoera;
 #endif

@@ -26,6 +26,7 @@ int initialize(SDL_Window *win, SDL_Renderer *renderer)
         SDL_Quit();
         return 1;
     }
+    
     return 0;
 }
 void cleanup(SDL_Window *win, SDL_Renderer *renderer)
